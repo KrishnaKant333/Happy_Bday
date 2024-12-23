@@ -70,7 +70,7 @@ body {
       transform: translate(-50%, -50%) rotate(45deg);
   }
   50% {
-      transform: translate(-50%, -60%) rotate(45deg); /* Subtle bounce */
+      transform: translate(-50%, -70%) rotate(45deg); /* Subtle bounce */
   }
 }
 
