@@ -96,7 +96,7 @@ document.body.addEventListener('click', (e) => {
         easterEgg.style.animation = 'fade-in 1s ease-in-out forwards';
 
         // Generate falling texts when the hidden message appears
-        for (let i = 0; i < 10; i++) { // Create 10 random falling texts
+        for (let i = 0; i < 50; i++) { // Create 10 random falling texts
             generateFallingText('💎');
         }
 
