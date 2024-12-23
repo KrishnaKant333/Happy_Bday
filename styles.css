@@ -16,7 +16,7 @@ body {
   position: absolute;
   font-size: 28px;
   font-weight: bold;
-  top: 10px; /* Adjust to place the text at the top of the page */
+  bottom: 10px; /* Adjust to place the text at the top of the page */
   left: 50%;
   transform: translate(-50%, -50%);
   animation: showText 3s forwards;
