@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1E90FF;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#popup-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  animation: pop-up-color-change 3s ease-out forwards;
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@keyframes pop-up-color-change {
+  0% {
+      transform: translate(-50%, -50%) scale(0); /* Starts small */
+      opacity: 1;
+  }
+  50% {
+      transform: translate(-50%, -50%) scale(1.2); /* Grows slightly */
+      opacity: 1;
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(1); /* Ends at normal size */
+      opacity: 0; /* Fades out */
+  }
+
+  0% { color: #ff0000; }   /* Red */
+  20% { color: #ff7f00; }  /* Orange */
+  40% { color: #ffff00; }  /* Yellow */
+  60% { color: #00ff00; }  /* Green */
+  80% { color: #0000ff; }  /* Blue */
+  100% { color: #8a2be2; } /* Purple */
+}
+
+.pile {
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+
+.message {
+  position: absolute;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: grab;
+  transition: transform 0.3s ease;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 300px;  /* Limit max width, adjust as necessary */
+  word-wrap: break-word;  /* Ensures long words break into next line if necessary */
+  
+  /* Create notebook-like lines using background */
+  background-image: linear-gradient(to bottom, 
+      #b7c3d0 1px, 
+      transparent 1px, 
+      transparent 19px, 
+      #b7c3d0 19px);
+  background-size: 100% 20px; /* Each line spaced by 20px */
+}
+
+.message:active {
+  cursor: grabbing;
+}
+
+/* Star styling */
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: fade-in-out 5s infinite ease-in-out;
+  opacity: 0; /* Start invisible for the fade-in effect */
+}
+
+/* Fade-in and fade-out animation */
+@keyframes fade-in-out {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0.8; /* Fully visible */
+  }
+  100% {
+      opacity: 0; /* Fades out again */
+  }
+}
+
+
+body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('notebook_texture.jpg') repeat;
+  opacity: 0.8;
+  z-index: 0;
+}

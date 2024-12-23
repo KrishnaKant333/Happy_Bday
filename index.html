@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="messagePile" class="pile">
+        <div id="popup-text">✨HAPPY BIRTHDAY!🥳🎉</div></center>
+        <script>
+            window.onload = function() {
+            confetti({
+            particleCount: 200,
+            spread: 70,
+            origin: { x: 0.5, y: 0.5 },
+            colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff']
+            });
+        };
+        </script>
+        <div class="message" id="msg1" draggable="true">Happy Birthday🎉</div>
+        <div class="message" id="msg2" draggable="true">Wishing you a day full of love and joy! 🎂</div>
+        <div class="message" id="msg3" draggable="true">May all your dreams come true this year! 🌟</div>
+        <div class="message" id="msg4" draggable="true">Here's to more amazing memories together! 🥳</div>
+        <div class="message" id="msg5" draggable="true">Enjoy your special day to the fullest! 🎈</div>
+        <center><div class="message" id="msg5" draggable="true">💖</div></center>
+
+        <div id="star-container"></div>
+        <!-- Add more birthday messages here -->
+
+    <script src="script.js"></script>
+</body>
+</html>
