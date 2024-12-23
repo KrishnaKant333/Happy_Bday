@@ -62,3 +62,52 @@ stars.forEach(star => {
         positionStar(star);
     });
 });
+// Easter egg element
+const easterEgg = document.getElementById('easter-egg');
+
+// Function to generate falling text
+function generateFallingText(message) {
+    const fallingText = document.createElement('div');
+    fallingText.classList.add('falling-text');
+    fallingText.textContent = message;
+    
+    // Randomize the starting position and animation timing
+    const startLeft = Math.random() * 100; // Random position on the X-axis (0-100%)
+    const delay = Math.random() * 3; // Random delay for each text
+    
+    fallingText.style.left = `${startLeft}%`;
+    fallingText.style.animationDelay = `${delay}s`;
+    
+    // Append falling text to the body
+    document.body.appendChild(fallingText);
+    
+    // Remove text after animation completes
+    setTimeout(() => {
+        fallingText.remove();
+    }, 4000); // Duration of the falling animation (4s)
+}
+
+// Add event listener to the top-left corner
+document.body.addEventListener('click', (e) => {
+    // Check if click is near the top-left corner
+    if (e.clientX < 50 && e.clientY < 50) {
+        // Show the Easter egg (image)
+        easterEgg.style.display = 'block';
+        easterEgg.style.animation = 'fade-in 1s ease-in-out forwards';
+
+        // Generate falling texts when the hidden message appears
+        for (let i = 0; i < 10; i++) { // Create 10 random falling texts
+            generateFallingText('💎');
+        }
+
+        // Hide the Easter egg smoothly after 5 seconds
+        setTimeout(() => {
+            easterEgg.style.animation = 'fade-out 1s ease-in-out forwards';
+
+            // Remove the element after fade-out completes
+            setTimeout(() => {
+                easterEgg.style.display = 'none';
+            }, 1000); // Match fade-out duration
+        }, 5000); // Delay before starting fade-out
+    }
+});
