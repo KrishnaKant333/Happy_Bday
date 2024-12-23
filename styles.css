@@ -4,18 +4,117 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1E90FF;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s infinite;
   margin: 0;
   overflow: hidden;
   position: relative;
 }
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Secret message styling */
+#easter-egg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 2rem;
+  text-align: center;
+  color: #ff4081;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Initially hidden */
+  z-index: 200; /* Ensure it appears above everything */
+  animation: fade-in 1s ease-in-out forwards;
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+  from {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+  }
+  to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+  }
+}
+
+/* Arrow pointing directly to the top-left corner */
+#hint-arrow {
+  position: absolute;
+  top: 0px; /* Align perfectly with the top edge */
+  left: 0px; /* Align perfectly with the left edge */
+  transform: translate(-50%, -50%) rotate(-45deg); /* Rotate and center at (0,0) */
+  width: 40px;
+  height: 40px;
+  border-top: 5px solid #ff4081; /* Arrow line */
+  border-left: 5px solid #ff4081; /* Arrow line */
+  animation: bounce 1.5s infinite; /* Bounce effect */
+  z-index: 150; /* Ensure visibility above other elements */
+  transition: opacity 1s ease-out;  /* Smooth fade-out effect */
+}
+
+/* Bounce animation for the arrow */
+@keyframes bounce {
+  0%, 100% {
+      transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+      transform: translate(-60%, -60%) rotate(-45deg); /* Subtle bounce */
+  }
+}
+
+
+/* Hidden image styling */
+#easter-egg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Initially hidden */
+  z-index: 200; /* Ensure visibility above other elements */
+}
+
+/* Fade-in animation for the image */
+@keyframes fade-in {
+  from {
+      opacity: 0;
+      transform: scale(0.9) translate(-50%, -50%);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+/* Fade-out animation */
+@keyframes fade-out {
+  from {
+      opacity: 1;
+      transform: scale(1) translate(-50%, -50%);
+  }
+  to {
+      opacity: 0;
+      transform: scale(0.9) translate(-50%, -50%);
+  }
+}
+
 
 #popup-text {
   font-size: 30px;
   font-weight: bold;
   color: #333;
   position: absolute;
-  top: 50%;
+  top: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
@@ -26,6 +125,7 @@ body {
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 @keyframes pop-up-color-change {
@@ -119,4 +219,24 @@ body:before {
   background: url('notebook_texture.jpg') repeat;
   opacity: 0.8;
   z-index: 0;
+}
+
+/* Falling text styling */
+.falling-text {
+  position: absolute;
+  top: -50px; /* Start from above the screen */
+  color: #ff4081;
+  font-size: 24px;
+  font-family: 'Arial', sans-serif;
+  opacity: 0;
+  animation: fall 4s linear infinite;
+  z-index: 150; /* Ensure the falling text appears above the background */
+}
+
+/* Falling animation */
+@keyframes fall {
+  to {
+      top: 100vh; /* End at the bottom of the screen */
+      opacity: 1;
+  }
 }
